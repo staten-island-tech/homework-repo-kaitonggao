@@ -53,3 +53,23 @@ const todo = {
 
 todo.add(); //callingthe function here
 todo.edit(22);
+
+
+// More function examples!
+//And how to do it w/ =>
+
+function sayHi(greeting){ 
+    return greeting;}
+
+sayHi('Hello!');
+
+
+//How to do it via arrow functions (it makes sense I think!)
+
+var sayHi = greeting => greeting
+sayHi('Hello!');
+
+
+
+// so here you have a function, called sayHi, and greeting is inside paratheses because you're doing something with it, you're returnin it.
+// to run a function, you just need to write the function name: sayHi('xxxxx'); Put whatever you want your variable to actually be ex: greeting -> now is replaced with 'Hello'!
