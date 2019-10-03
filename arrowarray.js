@@ -1,45 +1,45 @@
   // Q1.READ ALL THE INSTRUCTIONS CAREFULLY
-  // Select all the list items on the page and convert to array (array from)
+  // Select all the list items on the page and convert to array (array.from)
 
   //How to convert list items to arrays
 
-  const list = document.querySelectorAll('li'); // selects all items  <li> and automatically makes it an array
+  const list = Array.from(document.querySelectorAll('li')); // Use Array.from to make your selections into an array
   console.log(list); // you get an array of values
 
 
-  // Array.prototype.slice.call makes a copy of the array, and values before the # you specify
-  const listArray = Array.prototype.slice.call(list, 0); //lists items called in array list , # calls all values after it. 
+  /* Instead of Array.from you can also use: Array.prototype.slice.call
+
+  Array.prototype.slice.call makes a copy of the array, and values before the # you specify
+
+  const listArray = Array.prototype.slice.call(list, 0); 
+
+  You have an array called listArray which is modified o: 
  
+*/
 
 
   ///////// Filter for only the elements that contain the word 'Flexbox' hint use textContent (filter method)
 
 
+// list = array values
+// e in .map is just a variable for the elements in your array.
 
-/*
-https://www.freecodecamp.org/news/how-to-call-javascript-code-on-multiple-div-elements-without-the-id-attribute-59596e570fcf/
-*/
-
-  const flexboxArray =   listArray.filter( e=> e.textContent == "Flexbox Video")// filter only works on a copy of the array i guess or if you put it all together...
-
-  .map(e=> console.log(e));
-  //.map(liNode => liNode.getAttribute('data-time')) I know it works but I don't know why ;w;
+  const flexboxArray =   list.filter( list=> list.textContent == "Flexbox Video")
+  .map(e=>e.dataset.time) //If you put brackets {} you treat it like a function and you must add "return".
+  //dataset.time gives you the values dataset.time
+  .map(timeCode => {
+    const times = timeCode.split(':'); //splits things before + after the colon.
+   console.log(times); 
+    return (parseInt(times[0] * 60)) + parseInt(times[1]); //after you use split, you get a arrays that have the # before : as times[0] and the # after as times[1];
+    //parse makes whatever you write into something else. Ex: parseInt string -> integer
+  }).reduce((acc, cv) => acc + cv,0)
   console.log(flexboxArray);
 
+  //whenever you use an arrow function, your variables can be anything if you relist them. But how does the computer know what you're asking for. 
 
+  //reduce -> reduces your array into one value with is total of all your values. and seconds,0 is the value you want.
 
-    
-  // map down to a list of time strings Hint look up dataset mdn and think 'time'... you will need to create a new variable called filtered 
-
-
-
-  
-  // map to an array of seconds, 
- /*.map(timeCode => {
-    const parts = timeCode.split(':').seconds);
-    //console.log(parts); 
-    return seconds
-}) */
+  //const reducer = (accumulator, currentValue) => accumlator + currentValue.
 
 
 
@@ -61,7 +61,6 @@ https://www.freecodecamp.org/news/how-to-call-javascript-code-on-multiple-div-el
  // LITERALLY THE ONLY THING I HAD A CLUE HOW TO DO
 
  const numbers = [3, 62, 234, 7, 23, 74, 23, 76, 92]
-
 console.log(`${numbers}`); 
 
 const numbersOver70 = numbers.filter(e => e>70);
